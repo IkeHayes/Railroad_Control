@@ -2,7 +2,7 @@
 
 html {
      background-color: #d2b48c;
-     background-image: url(../img/Background_Image.jpg);
+     background-image: url(../img/TrainTracks_01.jpg);
      background-position:center;
      background-size:cover;
      background-repeat: no-repeat;
@@ -10,11 +10,13 @@ html {
 }
 
 div#MainContent {
-    background-color: rgba(119,136,153,0.95);
+    background-color: rgba(255,255,200,0.97);
     margin-left: 20%;
     margin-right: 20%;
     /*border: 2px solid gray;*/
-    padding: 0px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid #404040;
+    border-radius: 5px;
     font-family: sans-serif;
 }
 
