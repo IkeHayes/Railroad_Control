@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Railroad control page">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<Title>Railroad</Title>
+	
+	<!-- Files for custom slider object -->
+	<script src="/static/js/dhtmlxslider.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/dhtmlxslider.css"/>
+
+	<!-- Page CSS-->
+	<link type="text/css" rel="stylesheet" href="/static/css/IndexStyle.css">
+
+	<!-- JQuerry source and script file -->
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script>var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+	<script src="/static/js/IndexScripts.js"></script>
+
+  </head>
+  
+  <body onload="doOnLoad();" onunload="doOnUnload();">
+  	<div id="MainContent">
+		<div id="PageHeader">
+		<h1 id="top">Project Control Page!</h1>
+		  <img src="/static/img/day-of-making-badge.png" width="208" height="208" alt="" border="0">
+		</div>
+		
+		<div class="left_justify">
+		<h2>Information</h2>
+		  
+		  <!--Red LED Control Objets-->
+		  <p>The Red LED is: {{red_state}}</p>
+		  <p>Set Red LED: <a id="link_ROff" href="/set_red/Off">OFF</a> <a id="link_ROn" href="/set_red/On">ON</a></p>
+		  <p><button type="button" onclick="f_ROff()">OFF</button><button type="button" onclick="f_ROn()">ON</button></p>
+		  
+		  <!--Javascript Sliber Object for pwm control-->
+		  <div class="SliderDiv">
+		  	<p class="SliderP"><b>Set PWM:</b><br>
+		  		<span id="sliderObj"> </span><br>
+		  		Speed is: <span id="pwmValue">0</span>
+		  	</p>
+		  </div>
+		  <br>
+		  
+		  <!--Manually set PWM value with number input and set button-->
+		  <p>The Green LED is at: <span id="green_span">{{ green_state }}%</span></p>
+		  <p>
+		  	<input type="number" name="green_percent" min="0" max="100"></input>
+		  	<button type="button" name="set_green">Set</button>
+		  </p>
+		  <br>
+		  <p>
+		  	<button type="button" name="test_button">Test me!</button>
+		  	<span id="test_span">Nothing Here</span>
+		  
+		  <!--Footer to reload page-->
+		  <br>
+		  <br>
+		  <p><a href="/" title="Reload Main Page">Back to Main</a>
+	</div>
+  </body>
+</html>
